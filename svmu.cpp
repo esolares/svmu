@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
 	ifstream fin, refFasta, qFasta;
 	ofstream fout,fcnv,fsmall,ftrans,findel,fcords,fcm;
 	fin.open(argv[1]);
-	fcords.open(prefix + "cords.txt");
+	fcords.open(prefix + ".cords.txt");
 	while(getline(fin,line))
 	{
 		
@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
 		}
 	}
 	fin.close();
-	fcm.open(prefix + "cm.txt");
+	fcm.open(prefix + ".cm.txt");
 	for(chroms::iterator it = allChrom.begin();it!= allChrom.end();it++)
 	{
 		vm.clear();
@@ -282,10 +282,10 @@ int main(int argc, char *argv[])
 	//readfasta(qFasta,qseq);
 	//qFasta.close();
 	int id = 0;	
-	fout.open(prefix + "sv.txt");
-	fcnv.open(prefix + "cnv_all.txt");
-	fsmall.open(prefix + "small.txt");
-	//findel.open("indel.txt");
+	fout.open(prefix + ".sv.txt");
+	fcnv.open(prefix + ".cnv_all.txt");
+	fsmall.open(prefix + ".small.txt");
+	//findel.open(prefix + ".indel.txt");
 	fout<<"REF_CHROM\tREF_START\tREF_END\tSV_TYPE\tQ_CHROM\tQ_START\tQ_END\tID\tLEN\tCOV_REF\tCOV_Q"<<endl;
 	for(map<string,vector<string> >::iterator it = hcp.begin(); it != hcp.end();it++)
 	{
