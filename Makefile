@@ -20,4 +20,4 @@ svmu.o: svmu.cpp sv.h seqIO.h
 	$(CC) $(CFLAGS) -c svmu.cpp
 
 clean:
-	$(RM) *.o 
+	$(RM) *.o svmu
