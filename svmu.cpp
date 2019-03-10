@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
 	
 	mI tempmi,prevmi,temprmi,tempmi2;
 
+  string prefix = string(argv[6]);
 	string foo = string(argv[1]);
 	string line, chromName,refName,qName,indexAln;
 	int refStart = 0, refEnd = 0, qStart = 0, qEnd = 0, refLen =0, qLen =0, count = -1,qGap =0, indelPos =0, refChromCount=0, qChromCount = 0;
@@ -50,7 +51,7 @@ int main(int argc, char *argv[])
 	ifstream fin, refFasta, qFasta;
 	ofstream fout,fcnv,fsmall,ftrans,findel,fcords,fcm;
 	fin.open(argv[1]);
-	fcords.open("cords.txt");
+	fcords.open(prefix + "cords.txt");
 	while(getline(fin,line))
 	{
 		
@@ -117,7 +118,7 @@ int main(int argc, char *argv[])
 		}
 	}
 	fin.close();
-	fcm.open("cm.txt");
+	fcm.open(prefix + "cm.txt");
 	for(chroms::iterator it = allChrom.begin();it!= allChrom.end();it++)
 	{
 		vm.clear();
@@ -281,9 +282,9 @@ int main(int argc, char *argv[])
 	//readfasta(qFasta,qseq);
 	//qFasta.close();
 	int id = 0;	
-	fout.open("sv.txt");
-	fcnv.open("cnv_all.txt");
-	fsmall.open("small.txt");
+	fout.open(prefix + "sv.txt");
+	fcnv.open(prefix + "cnv_all.txt");
+	fsmall.open(prefix + "small.txt");
 	//findel.open("indel.txt");
 	fout<<"REF_CHROM\tREF_START\tREF_END\tSV_TYPE\tQ_CHROM\tQ_START\tQ_END\tID\tLEN\tCOV_REF\tCOV_Q"<<endl;
 	for(map<string,vector<string> >::iterator it = hcp.begin(); it != hcp.end();it++)
@@ -309,6 +310,3 @@ int main(int argc, char *argv[])
 	
 return 0;
 }
-			
-
-
