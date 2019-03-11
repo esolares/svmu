@@ -24,7 +24,7 @@ If you publish results obtained with this pipeline, please cite SVMU as describe
 3. Run svmu on the delta file.
 
  ```
-	svmu sam2ref.mm.delta ref.fasta sample.fasta n snp_mode> sample.small.txt
+	svmu sam2ref.mm.delta ref.fasta sample.fasta n snp_mode prefix
 
  ```
  <b>n</b> represents the number of unique mum/syntenic blocks that should be present between two sequences to find the SVs between them. It can be 5, or 10, or 100. 
